@@ -14,26 +14,52 @@
 # print(type(somelist))
 # pdSeries = PandasSeries(somelist)
 # print( type(pdSeries.toPandasSeries()) )
+
+# import pandas as pd
+# from dataclasses import dataclass
+
+# #Execute Two
+# @dataclass
+# class PandasDataFrame:
+#       inputdict : dict
+
+#       def toPandasDataFrame(self):
+#             return pd.DataFrame(self.inputdict)
+
+
+# gadget = {
+#            "Device_Name" : ["Cellphone","Laptop"],
+#            "Brand_Name"  : ["Apple","Acer"],
+#            "Price_USD"   : [2400,2800]  }
+# print(type(gadget))
+
+# gadget_df = PandasDataFrame(gadget)
+# print(type(gadget_df.toPandasDataFrame()))
+# print(gadget_df.toPandasDataFrame())
+
 import pandas as pd
 from dataclasses import dataclass
 
-#Execute Two
+#Execute Three
 @dataclass
 class PandasDataFrame:
-      inputdict : dict
+      listrows : list
+      listheader : list
 
       def toPandasDataFrame(self):
-            return pd.DataFrame(self.inputdict)
+            return pd.DataFrame(self.listrows, columns = self.listheader)
 
 
-gadget = {
-           "Device_Name" : ["Cellphone","Laptop"],
-           "Brand_Name"  : ["Apple","Acer"],
-           "Price_USD"   : [2400,2800]  }
-print(type(gadget))
+gadget_rowsList = [
+                    ["Laptop","Acer",2800],
+                    ["Cellphone","Apple",2400] ]
 
-gadget_df = PandasDataFrame(gadget)
+gadget_dataHeader = ["Device_Name","Brand_Name","Price_USD"]
+print(type(gadget_rowsList), type(gadget_dataHeader))
+
+gadget_df = PandasDataFrame(gadget_rowsList,gadget_dataHeader)
 print(type(gadget_df.toPandasDataFrame()))
 print(gadget_df.toPandasDataFrame())
     
+        
         

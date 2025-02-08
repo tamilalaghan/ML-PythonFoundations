@@ -63,3 +63,34 @@ print(gadget_df.toPandasDataFrame())
 ```
 Outcome
 ![alt text](image-2.png)
+
+
+Execute Three
+
+```py
+import pandas as pd
+from dataclasses import dataclass
+
+#Execute Three
+@dataclass
+class PandasDataFrame:
+      listrows : list
+      listheader : list
+
+      def toPandasDataFrame(self):
+            return pd.DataFrame(self.listrows, columns = self.listheader)
+
+
+gadget_rowsList = [
+                    ["Laptop","Acer",2800],
+                    ["Cellphone","Apple",2400] ]
+
+gadget_dataHeader = ["Device_Name","Brand_Name","Price_USD"]
+print(type(gadget_rowsList), type(gadget_dataHeader))
+
+gadget_df = PandasDataFrame(gadget_rowsList,gadget_dataHeader)
+print(type(gadget_df.toPandasDataFrame()))
+print(gadget_df.toPandasDataFrame())
+
+```
+![alt text](image-3.png)
