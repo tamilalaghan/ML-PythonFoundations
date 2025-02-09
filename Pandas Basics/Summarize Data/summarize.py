@@ -45,7 +45,29 @@
 # print(washers_df[['BrandName']].value_counts(normalize=True))
 
 
-# Execute Six
+# # Execute Six
+
+# import pandas as pd
+# from dataclasses import dataclass
+
+# @dataclass
+# class Summarize:
+#     filename : str
+    
+#     def panadasDataFrame(self):
+#         return pd.read_csv(self.filename)
+
+
+# washers = Summarize("washers.csv")
+# washers_df = washers.panadasDataFrame()
+
+# print("********** Mean Overall ***********")
+# print(washers_df[['Volume']].mean())
+
+# print("********** Groupby ***********")
+# print(washers_df.groupby('BrandName')[['Volume']].mean())
+
+# Execute Seven
 
 import pandas as pd
 from dataclasses import dataclass
@@ -61,8 +83,7 @@ class Summarize:
 washers = Summarize("washers.csv")
 washers_df = washers.panadasDataFrame()
 
-print("********** Mean Overall ***********")
-print(washers_df[['Volume']].mean())
 
-print("********** Groupby ***********")
-print(washers_df.groupby('BrandName')[['Volume']].mean())
+print("********** Groupby and Agg ***********")
+print(washers_df.groupby('BrandName')[['Volume']]
+      .agg(['mean','median','min','max']))

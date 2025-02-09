@@ -155,3 +155,28 @@ print(washers_df.groupby('BrandName')[['Volume']].mean())
 
 Outcome
 ![alt text](image-6.png)
+
+
+Execute Seven
+
+```py
+import pandas as pd
+from dataclasses import dataclass
+
+@dataclass
+class Summarize:
+    filename : str
+    
+    def panadasDataFrame(self):
+        return pd.read_csv(self.filename)
+
+
+washers = Summarize("washers.csv")
+washers_df = washers.panadasDataFrame()
+
+
+print("********** Groupby and Agg ***********")
+print(washers_df.groupby('BrandName')[['Volume']]
+      .agg(['mean','median','min','max']))
+```
+![alt text](image-7.png)
