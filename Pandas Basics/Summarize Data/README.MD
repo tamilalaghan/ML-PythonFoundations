@@ -70,3 +70,29 @@ print(washers_df[['Volume']].describe())
 
 Outcome
 ![alt text](image-3.png)
+
+Execute Four
+
+```py
+# Execute Four
+
+import pandas as pd
+from dataclasses import dataclass
+
+@dataclass
+class Summarize:
+    filename : str
+    
+    def panadasDataFrame(self):
+        return pd.read_csv(self.filename)
+
+
+washers = Summarize("washers.csv")
+washers_df = washers.panadasDataFrame()
+
+print("********** Value Counts ***********")
+print(washers_df[['BrandName']].value_counts())
+
+```
+Outcome
+![alt text](image-4.png)
