@@ -22,7 +22,7 @@
 # print(washers_df[['Volume']].describe())
 
 
-# Execute Four
+# Execute Four,Five
 
 import pandas as pd
 from dataclasses import dataclass
@@ -38,5 +38,8 @@ class Summarize:
 washers = Summarize("washers.csv")
 washers_df = washers.panadasDataFrame()
 
-print("********** Value Counts ***********")
-print(washers_df[['BrandName']].value_counts())
+# print("********** Value Counts ***********")
+# print(washers_df[['BrandName']].value_counts())
+
+print("********** Value Counts Percentage ***********")
+print(washers_df[['BrandName']].value_counts(normalize=True))
