@@ -62,8 +62,11 @@ washers = Summarize("washers.csv")
 washers_df = washers.panadasDataFrame()
 # print(washers_df.head())
 # print(washers_df.info())
+print("********** String Data ***********")
 print(washers_df[['BrandName']].describe())
+print("**********Numeric Data************")
+print(washers_df[['Volume']].describe())
 ```
 
 Outcome
-![alt text](image-2.png)
+![alt text](image-3.png)
