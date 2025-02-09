@@ -11,5 +11,6 @@ class Summarize:
 
 washers = Summarize("washers.csv")
 washers_df = washers.panadasDataFrame()
-#print(washers_df.head())
-print(washers_df.info())
+# print(washers_df.head())
+# print(washers_df.info())
+print(washers_df[['BrandName']].describe())
