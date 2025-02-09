@@ -17,4 +17,8 @@ vehicle_df = vehicle_instance.toVehiclesDataFrame()
 print(vehicle_df.head())
 vehicle_df.plot(kind="scatter",
                 x="citympg",y="co2emissions")
+plt.title("Rel bw MPG and CO2 Emissions")
+plt.xlabel("City Miles Per Gallon")
+plt.ylabel("CO2 Emissions")
+plt.legend(["citympg","co2emissions"])
 plt.show()
