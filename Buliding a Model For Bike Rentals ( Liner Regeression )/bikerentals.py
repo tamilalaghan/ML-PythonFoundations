@@ -58,3 +58,7 @@ print("********Input******\n",x.head(4))
 # Training Testing Split ( Random + Default Split)
 x_train, x_test, y_train, y_test = train_test_split(x,y,random_state=456)
 print(f"****Training Testing Split****\n x Train = {x_train.shape}\n x Test  = {x_test.shape}\n y Train = {y_train.shape}\n y Test  = {y_test.shape} ")
+
+# Model Training
+model = LinearRegression().fit(x_train, y_train)
+print(f"***Linear Regressiosn Model****\n Intercept : {model.intercept_}, Coeff : {model.coef_}")
