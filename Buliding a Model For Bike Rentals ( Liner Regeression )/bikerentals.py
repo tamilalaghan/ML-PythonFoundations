@@ -24,19 +24,32 @@ bike_rental_df = bike_rental.toPandasDataFrame()
 # Print Data Frame Description
 print( bike_rental_df.describe() )
 
-# Scatter plot b/w temperature and rentals
-bike_rental_df.plot(kind="scatter", x="temperature",
-                    y="rentals", figsize=(5,3))
-plt.title("Scatter b/w  temperature and rentals")
+# # Scatter plot b/w temperature and rentals
+# bike_rental_df.plot(kind="scatter", x="temperature",
+#                     y="rentals", figsize=(5,3))
+# plt.title("Scatter b/w  temperature and rentals")
 
 
-# Scatter plot b/w humidity and rentals
-bike_rental_df.plot(kind="scatter", x="humidity",
-                    y="rentals", figsize=(5,3))
-plt.title("Scatter b/w  humidity and rentals")
+# # Scatter plot b/w humidity and rentals
+# bike_rental_df.plot(kind="scatter", x="humidity",
+#                     y="rentals", figsize=(5,3))
+# plt.title("Scatter b/w  humidity and rentals")
 
-# Scatter plot b/w windspeed and rentals
-bike_rental_df.plot(kind="scatter", x="windspeed",
-                    y="rentals", figsize=(5,3))
-plt.title("Scatter b/w  windspeed and rentals")
-plt.show()
+# # Scatter plot b/w windspeed and rentals
+# bike_rental_df.plot(kind="scatter", x="windspeed",
+#                     y="rentals", figsize=(5,3))
+# plt.title("Scatter b/w  windspeed and rentals")
+# plt.show()
+
+# Response ( Output )
+response = 'rentals'
+y = bike_rental_df[['rentals']]
+print("Prediction Parameter : ",response)
+print("********Response******\n",y.head(4))
+
+# Predictors ( Input )
+predictors = list(bike_rental_df.columns)
+predictors.remove(response)
+print("Predictors Parameters : ",predictors)
+x = bike_rental_df[predictors]
+print("********Input******\n",x.head(4))
