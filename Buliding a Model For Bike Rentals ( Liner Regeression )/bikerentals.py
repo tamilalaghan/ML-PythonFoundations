@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error
 
 @dataclass
 class BikesDataFrame:
@@ -62,3 +63,24 @@ print(f"****Training Testing Split****\n x Train = {x_train.shape}\n x Test  = {
 # Model Training
 model = LinearRegression().fit(x_train, y_train)
 print(f"***Linear Regressiosn Model****\n Intercept : {model.intercept_}, Coeff : {model.coef_}")
+
+# Model Evaluation
+print(f"The Model Prediction Score is ",model.score(x_test, y_test))
+y_prediction = model.predict(x_test)
+print(f"Mean Absolute Error of the Model is ",mean_absolute_error(y_prediction,y_test))
+
+# Creating Outcome Comparison
+y_prediction_df = pd.DataFrame(y_prediction,index= y_test.index, columns=['Rentals_Prediction'])
+# print(y_prediction_df.head())
+comparison_df = pd.concat([y_test,y_prediction_df],axis=1)
+comparison_df["Difference"] = comparison_df["rentals"] - comparison_df["Rentals_Prediction"]
+# print(comparison_df.head(6))
+
+print("***********Exact Matches +/- 10 **************")
+print(comparison_df[((comparison_df["Difference"]> 0) & (comparison_df["Difference"] < 10)) | 
+                    ((comparison_df["Difference"]< 0) & (comparison_df["Difference"] > -10)) ])
+print("***********Difference **************")
+print(comparison_df["Difference"].describe())
+comparison_df["Difference"].plot(kind="hist")
+plt.title("Diffence Histogram") 
+plt.show()
