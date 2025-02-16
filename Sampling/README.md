@@ -64,8 +64,17 @@ print(f" x train = {x_train.shape} \n x test (20%) = {x_test.shape} \n y train =
 print("*******Percentage of drive Stratify Sampling  20% *********")
 print(x_test['drive'].value_counts(normalize = True))
 print("***********************************")
-
-
-
-
 ```
+
+Outcome 
+{ X [Drive] }
+![alt text](image.png)
+
+Random Sampling X Test [Drive]
+![alt text](image-1.png)
+
+Random Sampling X Test [Drive] 20%
+![alt text](image-2.png)
+
+Stratify Sampling X Test [Drive] 20%
+![alt text](image-3.png)
