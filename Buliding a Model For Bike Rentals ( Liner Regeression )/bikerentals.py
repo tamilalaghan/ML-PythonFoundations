@@ -18,8 +18,25 @@ filename = "bikes.csv"
 bike_rental = BikesDataFrame(filename)
 bike_rental_df = bike_rental.toPandasDataFrame()
 
-# Print Data Frames ( Info )
-print ( bike_rental_df.info() )
+# # Print Data Frames ( Info )
+# print ( bike_rental_df.info() )
 
 # Print Data Frame Description
 print( bike_rental_df.describe() )
+
+# Scatter plot b/w temperature and rentals
+bike_rental_df.plot(kind="scatter", x="temperature",
+                    y="rentals", figsize=(5,3))
+plt.title("Scatter b/w  temperature and rentals")
+
+
+# Scatter plot b/w humidity and rentals
+bike_rental_df.plot(kind="scatter", x="humidity",
+                    y="rentals", figsize=(5,3))
+plt.title("Scatter b/w  humidity and rentals")
+
+# Scatter plot b/w windspeed and rentals
+bike_rental_df.plot(kind="scatter", x="windspeed",
+                    y="rentals", figsize=(5,3))
+plt.title("Scatter b/w  windspeed and rentals")
+plt.show()
