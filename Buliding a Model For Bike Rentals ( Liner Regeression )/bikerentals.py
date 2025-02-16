@@ -20,3 +20,6 @@ bike_rental_df = bike_rental.toPandasDataFrame()
 
 # Print Data Frames ( Info )
 print ( bike_rental_df.info() )
+
+# Print Data Frame Description
+print( bike_rental_df.describe() )
